@@ -45,7 +45,7 @@ For personal results, download your data from LinkedIn (Settings → Data privac
 
 ## What rankedin does not do
 
-rankedin is not a resume writer, job board, interview coach or salary tool, and it does not assess promotion readiness. It never estimates a score it has not measured, and it never names individual people in your network. rankedin is not affiliated with or endorsed by LinkedIn; it analyzes the data export that LinkedIn provides to you.
+rankedin is not a resume writer, job board, interview coach or salary tool, and it does not assess promotion readiness. It never estimates a score it has not measured. The Claude connector does not return individual names for network changes. Your rankedin analysis can show connection-level changes, including new and discontinued connections, job and role changes, and relationships you may want to reconnect with. rankedin is not affiliated with or endorsed by LinkedIn; it analyzes the data export that LinkedIn provides to you.
 
 ## Data and privacy
 
