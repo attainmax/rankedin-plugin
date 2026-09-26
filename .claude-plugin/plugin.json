@@ -1,0 +1,25 @@
+{
+  "name": "rankedin",
+  "displayName": "rankedin",
+  "version": "0.1.0",
+  "description": "Understand where you stand professionally and decide what to do next. Get direction on your next career move, a job search that isn't working, changing careers, AI changing your job, or building your professional reputation — right away, with no upload. Add your own LinkedIn data export for personal profile scores, strengths and gaps, peer comparison, AI resilience and network insight.",
+  "author": {
+    "name": "rankedin",
+    "url": "https://rankedin.app"
+  },
+  "homepage": "https://rankedin.app",
+  "repository": "https://github.com/attainmax/rankedin-plugin",
+  "license": "MIT",
+  "keywords": [
+    "career",
+    "next career move",
+    "job search",
+    "career change",
+    "career pivot",
+    "ai and jobs",
+    "professional reputation",
+    "professional network",
+    "profile review",
+    "resume positioning"
+  ]
+}

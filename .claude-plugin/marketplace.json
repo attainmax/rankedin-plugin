@@ -1,0 +1,14 @@
+{
+  "name": "rankedin",
+  "description": "The rankedin plugin: decide your next career move, and understand your professional profile from your own LinkedIn data export.",
+  "owner": {
+    "name": "rankedin",
+    "url": "https://rankedin.app"
+  },
+  "plugins": [
+    {
+      "name": "rankedin",
+      "source": "./"
+    }
+  ]
+}

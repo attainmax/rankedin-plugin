@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rankedin": {
+      "type": "http",
+      "url": "https://rankedin.app/api/mcp"
+    }
+  }
+}

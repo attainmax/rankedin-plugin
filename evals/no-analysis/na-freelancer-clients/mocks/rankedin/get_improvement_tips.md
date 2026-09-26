@@ -1,0 +1,1 @@
+No LinkedIn data connected yet. To see your scores, network summary, and career insights here in Claude, go to rankedin.app/dashboard/upload?source=claude and upload your LinkedIn export — takes about 2 minutes, and your data will appear here automatically.

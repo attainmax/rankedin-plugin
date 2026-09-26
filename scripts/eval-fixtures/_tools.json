@@ -1,0 +1,130 @@
+{
+  "tools": [
+    {
+      "name": "get_my_scores",
+      "description": "Get the user's LinkedIn profile scores and AI Career Resilience Score. Returns 8 LinkedIn dimension scores (0-100): Network, Engagement, Credibility, Outreach, Content, Career, Learning, and Influence — plus an AI Resilience Score (0-100) showing how AI-proof their career is and their risk level (low/medium/high). Use this for: AI impact on their career, LinkedIn profile review, resume assessment, job search readiness, career health checks, or any question about professional strength.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_network_summary",
+      "description": "Get a detailed summary of the user's LinkedIn network: total connections, growth rate, engagement activity (reactions, comments), recommendations given/received, and account age. Use this for: networking strategy questions, outreach effectiveness, understanding professional visibility, or assessing relationship-building activity.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_peer_comparison",
+      "description": "Get percentile rankings comparing the user's LinkedIn scores against real peers in the same industry and job level. Shows global and peer-group percentiles for each dimension. Use this for: salary negotiation context (\"how do I compare to peers?\"), promotion readiness (\"am I above average for my level?\"), job search benchmarking (\"am I competitive?\"), or understanding where they stand vs professionals like them.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_connection_insights",
+      "description": "Get aggregate, counts-only insight into the user's LinkedIn connections from their uploaded export: how many connections it contains, how recently they were added, how far back the network goes, and how complete the records are. When two or more exports have been analysed, also reports how many connections are new, how many records are no longer present, and how many matched records show a different recorded title or company, between two dated exports. Use this for: connection-base size and recency, network growth between exports, or how a network changed over time. Returns counts, percentages and dates ONLY — it cannot name, list or identify any individual connection, cannot say who changed roles or who is absent, and cannot look anyone up. It has no live LinkedIn access.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_improvement_tips",
+      "description": "Get the full AI-generated career intelligence report: AI Resilience Score with risk level, an AI impact summary, near/medium/long-term actions to AI-proof the career, skills to build, AI-vulnerable and AI-resistant skills, pivot directions recorded by the AI impact analysis, LinkedIn strengths, areas for improvement, and personalised recommendations. Use this for: AI impact on their role (\"will AI replace me?\", \"how do I future-proof my career?\"), LinkedIn profile improvement, resume review (\"what should I strengthen?\"), career development planning, or any question requiring specific actionable advice.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_career_timeline",
+      "description": "Get deep career intelligence derived from job history and applications: career trajectory pattern, identified target role, skill gaps to address, prioritised next steps, peer career pathways, and job search insights. Use this for: career change or pivot planning (\"how do I move into X?\"), job search preparation (\"what skills am I missing?\"), promotion strategy, understanding career progression, or resume gap analysis.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_career_paths",
+      "description": "Get RankedIn's four career paths — find a job, attract more customers, build a professional reputation, or pivot careers — with the approach and first step for each. Works with or without a RankedIn analysis: without one it returns the paths as a decision framework only, which is not an assessment of the user; with one it also returns which paths the user's own analysis points to and the reason. Use this when the user is deciding what to focus on next: what their next career move should be, where to start or how to fix a job search, whether to stay or change direction, what to do about AI changing their role, or how to build visibility and reputation. It does not score the user, estimate anything, create a plan or start anything on their behalf.",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_id": {
+            "type": "string",
+            "description": "Optional: specific analysis ID. Omit to use the most recent analysis."
+          }
+        }
+      }
+    }
+  ]
+}
