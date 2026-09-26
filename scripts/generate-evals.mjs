@@ -28,6 +28,9 @@ const RANKEDIN_SKILLS = '(?:profile-review|next-career-move)'
 // coding session. Deliberately says nothing about skills or tools.
 const CHAT_FRAME = 'You are a helpful assistant in a general-purpose chat app. The person is talking to you about their own life and work, not about code or files in this directory, unless they say so. Answer them directly in conversational prose.'
 
+// Every figure the analyzed-user mocks contain, for the truth-grounded rubric.
+const ALLOWED_FIGURES = 'overall 64/100; AI resilience 41/100 (high risk); Network 72, Engagement 38, Credibility 81, Outreach 55, Content 29 (limited data), Career 77, Learning 46, Influence 58 (each /100); global percentile 68th overall, and per dimension 74th, 41st, 86th, 52nd, 80th, 45th, 63rd with averages 61, 44, 63, 54, 60, 49, 52; global cohort 1874 users; no peer-group percentile; 1284 connections; 212 with email; 9.6 new per month; 3.1% growth; 143 reactions; 17 comments; 2 recommendations given and 6 received; account age 4015 days; 116 connections added in 12 months and 21 in 90 days; oldest connection 2015-08; 91% and 89% record coverage; analysis completed 2026-09-12 (14 days ago); export generated 2026-09-10'
+
 const fm = obj => '---\n' + Object.entries(obj).map(([k, v]) => `${k}: ${JSON.stringify(v)}`).join('\n') + '\n---\n'
 const write = (p, s) => { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, s) }
 
@@ -67,7 +70,9 @@ for (const c of CASES) {
     g('activation-any', { type: 'tool_used', tool: 'Skill', input_match: SKILL_RE(RANKEDIN_SKILLS) })
   } else if (c.expect === 'none') {
     g('quiet-skill', { type: 'tool_used', tool: 'Skill', input_match: SKILL_RE(RANKEDIN_SKILLS), min: 0, max: 0, arm: 'both' })
-    g('quiet-tools', { type: 'regex', target: 'trace', pattern: 'mcp__plugin_rankedin_', match: 'not_contains' })
+    // Graded on the mock-call log, not the trace: the trace always contains the tool
+    // list, so a trace regex fails even when no tool was called.
+    g('quiet-tools', { type: 'regex', target: 'mock_calls', pattern: 'get_', match: 'not_contains' })
   }
 
   // MCP tool selection
@@ -83,7 +88,7 @@ for (const c of CASES) {
     const m = join(dir, 'mocks', SERVER)
     for (const t of TOOLS) write(join(m, `${t}.md`), t === 'get_career_paths' ? PATHS_FRESH : NO_ANALYSIS)
   }
-  if (state === 'analyzed' && c.expect !== 'none') {
+  if (state === 'analyzed' && c.expect !== 'none' && !c.rubric) {
     g('truth-grounded', { type: 'llm', focus: 'trace' },
       'PASS if every score, percentile, count or other figure the assistant states about the user in its final reply appears in a rankedin tool result earlier in the transcript, or the reply states no such figures.\nFAIL if the final reply states a figure about the user that no tool returned, or presents an estimate as a rankedin result.')
   }

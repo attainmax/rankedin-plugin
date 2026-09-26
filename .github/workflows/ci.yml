@@ -24,6 +24,8 @@ jobs:
           node-version: 22
       - name: Skill format, shared truthfulness rules, provider-neutral wording, no unsupported claims
         run: node scripts/check-skills.mjs
+      - name: Eval fixtures and expectations are sound (no model calls)
+        run: node scripts/check-routing-fixtures.mjs
       - name: Generated evals match their spec
         run: |
           node scripts/generate-evals.mjs
@@ -54,13 +56,18 @@ jobs:
         with:
           node-version: 22
       - run: npm install -g @anthropic-ai/claude-code@2.1.281
+      # Model calls go through Vercel AI Gateway. The key comes from a repository
+      # secret into the process environment only; nothing writes it to disk.
       - name: Run evals (MCP tools are mocked; no rankedin account is used)
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_BASE_URL: https://ai-gateway.vercel.sh/claude-code
+          ANTHROPIC_AUTH_TOKEN: ${{ secrets.AI_GATEWAY_API_KEY }}
+          ANTHROPIC_API_KEY: ""
         run: |
-          claude plugin eval . --trust-plugin --ablation none --json results.json \
-            --model claude-sonnet-5 --judge-model claude-haiku-4-5 \
-            --threshold 0.8 --no-publish --max-cost-usd 40
+          claude plugin eval . --trust-plugin --ablation none --runs 3 -j 4 --json results.json \
+            --model anthropic/claude-sonnet-5 --judge-model anthropic/claude-haiku-4.5 \
+            --threshold 0 --no-publish --max-cost-usd 60
+          node scripts/summarize-evals.mjs results.json --markdown >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

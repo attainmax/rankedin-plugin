@@ -1,6 +1,6 @@
 ---
 type: "regex"
-target: "trace"
-pattern: "mcp__plugin_rankedin_"
+target: "mock_calls"
+pattern: "get_"
 match: "not_contains"
 ---
