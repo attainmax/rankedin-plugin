@@ -20,7 +20,7 @@
     },
     {
       "name": "get_network_summary",
-      "description": "Get a detailed summary of the user's LinkedIn network: total connections, growth rate, engagement activity (reactions, comments), recommendations given/received, and account age. Use this for: networking strategy questions, outreach effectiveness, understanding professional visibility, or assessing relationship-building activity.",
+      "description": "Get a detailed summary of the user's LinkedIn network: total connections, growth rate, engagement activity (reactions, comments), recommendations given/received, and account age. Use this for: networking strategy questions, outreach effectiveness, understanding professional visibility, or assessing relationship-building activity. It reports size and activity only. It does not record which industries, companies, roles or seniority levels the user's connections have, so it cannot say whether they are connected to the \"right\" people.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "get_peer_comparison",
-      "description": "Get percentile rankings comparing the user's LinkedIn scores against real peers in the same industry and job level. Shows global and peer-group percentiles for each dimension. Use this for: salary negotiation context (\"how do I compare to peers?\"), promotion readiness (\"am I above average for my level?\"), job search benchmarking (\"am I competitive?\"), or understanding where they stand vs professionals like them.",
+      "description": "Get percentile rankings comparing the user's LinkedIn scores against other RankedIn users: global percentiles for each dimension, plus peer-group percentiles among users at the same job level when enough of them exist. Returns percentiles and averages only; it has no salary or compensation data. Use this for: \"how do I compare to peers?\", job search benchmarking (\"am I competitive?\"), or understanding where they stand vs professionals like them.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
