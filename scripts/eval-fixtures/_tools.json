@@ -92,7 +92,7 @@
     },
     {
       "name": "get_career_timeline",
-      "description": "Get deep career intelligence derived from job history and applications: career trajectory pattern, identified target role, skill gaps to address, prioritised next steps, peer career pathways, and job search insights. Use this for: career change or pivot planning (\"how do I move into X?\"), job search preparation (\"what skills am I missing?\"), promotion strategy, understanding career progression, or resume gap analysis.",
+      "description": "Get deep career intelligence derived from job history and applications: career trajectory pattern, identified target role, skill gaps to address, prioritised next steps, peer career pathways, and job search insights. Use this for: career change or pivot planning (\"how do I move into X?\"), job search preparation (\"what skills am I missing?\"), understanding career direction and progression, or resume gap analysis.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
