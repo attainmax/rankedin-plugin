@@ -10,6 +10,10 @@
   "homepage": "https://rankedin.app",
   "repository": "https://github.com/attainmax/rankedin-plugin",
   "license": "MIT",
+  "privacyPolicyUrl": "https://rankedin.app/privacy",
+  "supportUrl": "https://rankedin.app/support",
+  "termsOfServiceUrl": "https://rankedin.app/terms",
+  "documentationUrl": "https://rankedin.app/docs",
   "keywords": [
     "career",
     "next career move",
